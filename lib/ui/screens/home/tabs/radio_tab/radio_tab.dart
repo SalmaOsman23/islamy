@@ -14,7 +14,7 @@ class RadioTab extends StatelessWidget {
         Column(
           children: [
             Text(
-              "اذاعة القرآن الكريم",
+              "إذاعة القرآن الكريم",
               style: AppTheme.quranTabTitleTextStyle,
             ),
             Container(
