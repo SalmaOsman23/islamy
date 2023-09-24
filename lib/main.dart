@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:islamy/ui/screens/home/details_screen/details_screen.dart';
 import 'package:islamy/ui/screens/home/home_screen.dart';
 
 void main() {
   runApp(MaterialApp(
     routes: {
       HomeScreen.routeName: (context) => HomeScreen(),
+      DetailScreen.routeName: (context) => DetailScreen(),
     },
     initialRoute: HomeScreen.routeName,
     debugShowCheckedModeBanner: false,

@@ -7,6 +7,12 @@ abstract class AppTheme {
   static final TextStyle appBarTitleTextStyle = TextStyle(
       fontFamily: GoogleFonts.elMessiri().fontFamily,
       fontWeight: FontWeight.bold,
-      fontSize: 30,
+      fontSize: 35,
+      color: AppColors.accent);
+
+  static final TextStyle quranTabTitleTextStyle = TextStyle(
+      fontFamily: GoogleFonts.elMessiri().fontFamily,
+      fontWeight: FontWeight.w600,
+      fontSize: 25,
       color: AppColors.accent);
 }
