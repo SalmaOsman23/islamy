@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islamy/data_model/details_screen_args.dart';
 import 'package:islamy/ui/screens/home/details_screen/details_screen.dart';
 import 'package:islamy/ui/utilits/app_assets.dart';
@@ -19,7 +20,7 @@ class QuranTab extends StatelessWidget {
           color: AppColors.primary,
         ),
         Text(
-          "Surah Name",
+          AppLocalizations.of(context)!.surahName,
           textAlign: TextAlign.center,
           style: AppTheme.quranTabTitleTextStyle,
         ),

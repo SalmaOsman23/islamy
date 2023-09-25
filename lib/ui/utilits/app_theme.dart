@@ -15,4 +15,16 @@ abstract class AppTheme {
       fontWeight: FontWeight.w600,
       fontSize: 25,
       color: AppColors.accent);
+
+  static final TextStyle settingsTitleTextStyle = TextStyle(
+      fontFamily: GoogleFonts.elMessiri().fontFamily,
+      fontWeight: FontWeight.w600,
+      fontSize: 25,
+      color: AppColors.accent);
+
+  static final TextStyle settingsOptionTextStyle = TextStyle(
+      fontFamily: GoogleFonts.elMessiri().fontFamily,
+      fontWeight: FontWeight.normal,
+      fontSize: 22,
+      color: AppColors.accent);
 }

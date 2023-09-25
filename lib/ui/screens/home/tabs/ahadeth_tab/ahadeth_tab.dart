@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../../data_model/details_screen_args.dart';
 import '../../../../utilits/app_assets.dart';
@@ -22,7 +23,7 @@ class AhadethTab extends StatelessWidget {
           color: AppColors.primary,
         ),
         Text(
-          "الأحاديث",
+          AppLocalizations.of(context)!.ahadeth,
           textAlign: TextAlign.center,
           style: AppTheme.quranTabTitleTextStyle,
         ),
