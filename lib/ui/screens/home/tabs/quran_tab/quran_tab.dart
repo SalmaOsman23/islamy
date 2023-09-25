@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:islamy/data_model/details_screen_args.dart';
+import 'package:islamy/ui/screens/home/details_screen/details_screen.dart';
 import 'package:islamy/ui/utilits/app_assets.dart';
 import 'package:islamy/ui/utilits/app_colors.dart';
 
@@ -31,7 +33,13 @@ class QuranTab extends StatelessWidget {
               itemCount: Constants.surahName.length,
               itemBuilder: (_, index) {
                 return TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, DetailScreen.routeName,
+                        arguments: DetailsScreenArgs(
+                            isQuranScreen: true,
+                            detailsScreenTitle: Constants.surahName[index],
+                            detailsScreenContent: "${index + 1}.txt"));
+                  },
                   child: Text(
                     Constants.surahName[index],
                     style: AppTheme.quranTabTitleTextStyle
