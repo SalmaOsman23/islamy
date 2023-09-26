@@ -6,6 +6,7 @@ import 'package:islamy/ui/screens/home/details_screen/details_screen.dart';
 import 'package:islamy/ui/screens/home/home_screen.dart';
 import 'package:islamy/ui/screens/home/tabs/sebha_tab/sebha_tab.dart';
 import 'package:islamy/ui/screens/home/tabs/settings_tab/settigs_tab.dart';
+import 'package:islamy/ui/utilits/app_theme.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -36,13 +37,17 @@ class MyApp extends StatelessWidget {
       },
       initialRoute: HomeScreen.routeName,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+      themeMode: provider.currentTheme,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme
+      /*ThemeData(
           scaffoldBackgroundColor: Colors.transparent,
           appBarTheme: AppBarTheme(
             centerTitle: true,
             elevation: 0,
             backgroundColor: Colors.transparent,
-          )),
+          ))*/
+      ,
     );
   }
 }

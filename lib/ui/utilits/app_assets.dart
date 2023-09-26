@@ -11,4 +11,5 @@ abstract class AppAssets {
   static const splash = "${baseImagePath}splash.png";
   static const bodySebha = "${baseImagePath}body_sebha_logo.png";
   static const background = "${baseImagePath}default_bg.png";
+  static const darkBackground = "${baseImagePath}dark_bg.png";
 }

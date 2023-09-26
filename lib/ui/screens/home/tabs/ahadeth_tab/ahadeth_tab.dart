@@ -3,8 +3,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../../data_model/details_screen_args.dart';
 import '../../../../utilits/app_assets.dart';
-import '../../../../utilits/app_colors.dart';
-import '../../../../utilits/app_theme.dart';
 import '../../details_screen/details_screen.dart';
 
 class AhadethTab extends StatelessWidget {
@@ -18,19 +16,13 @@ class AhadethTab extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(flex: 3, child: Image.asset(AppAssets.hadethImageLogo)),
-        const Divider(
-          thickness: 3,
-          color: AppColors.primary,
-        ),
+        const Divider(),
         Text(
           AppLocalizations.of(context)!.ahadeth,
           textAlign: TextAlign.center,
-          style: AppTheme.quranTabTitleTextStyle,
+          style: Theme.of(context).textTheme.displayMedium,
         ),
-        const Divider(
-          thickness: 3,
-          color: AppColors.primary,
-        ),
+        const Divider(),
         Expanded(
           flex: 7,
           child: ListView.builder(
@@ -46,7 +38,9 @@ class AhadethTab extends StatelessWidget {
                   },
                   child: Text(
                     ahadethNames[index],
-                    style: AppTheme.quranTabTitleTextStyle
+                    style: Theme.of(context)
+                        .textTheme
+                        .displayMedium!
                         .copyWith(fontWeight: FontWeight.normal),
                     textAlign: TextAlign.center,
                   ),

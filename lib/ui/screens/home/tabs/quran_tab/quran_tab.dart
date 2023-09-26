@@ -3,9 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islamy/data_model/details_screen_args.dart';
 import 'package:islamy/ui/screens/home/details_screen/details_screen.dart';
 import 'package:islamy/ui/utilits/app_assets.dart';
-import 'package:islamy/ui/utilits/app_colors.dart';
 
-import '../../../../utilits/app_theme.dart';
 import '../../../../utilits/constants.dart';
 
 class QuranTab extends StatelessWidget {
@@ -15,19 +13,13 @@ class QuranTab extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(flex: 3, child: Image.asset(AppAssets.quranImageLogo)),
-        Divider(
-          thickness: 3,
-          color: AppColors.primary,
-        ),
+        Divider(),
         Text(
           AppLocalizations.of(context)!.surahName,
           textAlign: TextAlign.center,
-          style: AppTheme.quranTabTitleTextStyle,
+          style: Theme.of(context).textTheme.displayMedium,
         ),
-        Divider(
-          thickness: 3,
-          color: AppColors.primary,
-        ),
+        Divider(),
         Expanded(
           flex: 7,
           child: ListView.builder(
@@ -43,8 +35,7 @@ class QuranTab extends StatelessWidget {
                   },
                   child: Text(
                     Constants.surahName[index],
-                    style: AppTheme.quranTabTitleTextStyle
-                        .copyWith(fontWeight: FontWeight.normal),
+                    style: Theme.of(context).textTheme.displayMedium!,
                     textAlign: TextAlign.center,
                   ),
                 );

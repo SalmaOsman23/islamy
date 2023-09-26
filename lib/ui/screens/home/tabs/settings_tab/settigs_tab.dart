@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islamy/providers/settings_provider.dart';
 import 'package:islamy/ui/utilits/app_colors.dart';
-import 'package:islamy/ui/utilits/app_theme.dart';
 import 'package:provider/provider.dart';
 
 class SettingsTab extends StatefulWidget {
@@ -24,7 +23,7 @@ class _SettingsTabState extends State<SettingsTab> {
       children: [
         Text(
           AppLocalizations.of(context)!.settings,
-          style: AppTheme.settingsTitleTextStyle,
+          style: Theme.of(context).textTheme.bodyMedium,
         ),
         buildSettingsRow("العربية", arSwitch, (newValue) {
           arSwitch = newValue;
@@ -36,8 +35,12 @@ class _SettingsTabState extends State<SettingsTab> {
         }),
         buildSettingsRow(AppLocalizations.of(context)!.darkMode, darkModeSwitch,
             (newValue) {
-          darkModeSwitch = newValue;
-          setState(() {});
+              darkModeSwitch = newValue;
+          if (darkModeSwitch) {
+            provider.setCurrentTheme(ThemeMode.dark);
+          } else {
+            provider.setCurrentTheme(ThemeMode.light);
+          }
         }),
       ],
     );
@@ -51,7 +54,7 @@ class _SettingsTabState extends State<SettingsTab> {
         children: [
           Text(
             title,
-            style: AppTheme.settingsOptionTextStyle,
+            style: Theme.of(context).textTheme.bodySmall,
           ),
           Spacer(),
           Switch(

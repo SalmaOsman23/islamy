@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:islamy/ui/utilits/app_assets.dart';
-import 'package:islamy/ui/utilits/app_colors.dart';
-import 'package:islamy/ui/utilits/app_theme.dart';
 
 class RadioTab extends StatelessWidget {
   @override
@@ -15,7 +13,7 @@ class RadioTab extends StatelessWidget {
           children: [
             Text(
               "إذاعة القرآن الكريم",
-              style: AppTheme.quranTabTitleTextStyle,
+              style: Theme.of(context).textTheme.displayMedium,
             ),
             Container(
               margin: EdgeInsets.only(top: 30),
@@ -28,7 +26,7 @@ class RadioTab extends StatelessWidget {
                       Icons.skip_previous_rounded,
                       size: 45,
                     ),
-                    color: AppColors.primary,
+                    //color: AppColors.primary,
                   ),
                   IconButton(
                     onPressed: () {},
@@ -36,7 +34,7 @@ class RadioTab extends StatelessWidget {
                       Icons.play_arrow_rounded,
                       size: 45,
                     ),
-                    color: AppColors.primary,
+                    //color: AppColors.primary,
                   ),
                   IconButton(
                     onPressed: () {},
@@ -44,7 +42,7 @@ class RadioTab extends StatelessWidget {
                       Icons.skip_next_rounded,
                       size: 45,
                     ),
-                    color: AppColors.primary,
+                    //color: AppColors.primary,
                   ),
                 ],
               ),
