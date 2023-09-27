@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:islamy/ui/utilits/app_assets.dart';
 import 'package:islamy/ui/utilits/app_colors.dart';
 import 'package:islamy/ui/utilits/constants.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../../providers/settings_provider.dart';
 
 class SebhaTab extends StatefulWidget {
   static const String routeName = "Sebha Tab";
@@ -16,9 +19,11 @@ class _SebhaTabState extends State<SebhaTab> {
   int counter = 0;
   int currentIndex = 0;
   double rotateAngle = 0;
+  late SettingsProvider provider;
 
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of(context);
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(18.0),
@@ -27,7 +32,9 @@ class _SebhaTabState extends State<SebhaTab> {
             //Image.asset(AppAssets.sebhaHead),
             Transform.rotate(
                 angle: rotateAngle * (pi / 180),
-                child: Image.asset(AppAssets.bodySebha)),
+                child: provider.isDarkMode()
+                    ? Image.asset(AppAssets.bodySebhaDark)
+                    : Image.asset(AppAssets.bodySebha)),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
@@ -47,11 +54,11 @@ class _SebhaTabState extends State<SebhaTab> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    backgroundColor: AppColors.primary,
+                    //backgroundColor: Theme.of(context).floatingActionButtonTheme as Color,
                     child: Text(
                       "$counter",
                       style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Container(
@@ -62,7 +69,9 @@ class _SebhaTabState extends State<SebhaTab> {
                       style: TextStyle(color: AppColors.white),
                     ),
                     decoration: BoxDecoration(
-                      color: AppColors.primary,
+                      color: provider.isDarkMode()
+                          ? AppColors.accentDark
+                          : AppColors.primary,
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),

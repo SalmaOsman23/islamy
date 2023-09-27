@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:islamy/providers/settings_provider.dart';
 import 'package:islamy/ui/utilits/app_assets.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../utilits/app_colors.dart';
+
+late SettingsProvider provider;
 
 class RadioTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -26,7 +33,9 @@ class RadioTab extends StatelessWidget {
                       Icons.skip_previous_rounded,
                       size: 45,
                     ),
-                    //color: AppColors.primary,
+                    color: provider.isDarkMode()
+                        ? AppColors.accentDark
+                        : AppColors.primary,
                   ),
                   IconButton(
                     onPressed: () {},
@@ -34,7 +43,9 @@ class RadioTab extends StatelessWidget {
                       Icons.play_arrow_rounded,
                       size: 45,
                     ),
-                    //color: AppColors.primary,
+                    color: provider.isDarkMode()
+                        ? AppColors.accentDark
+                        : AppColors.primary,
                   ),
                   IconButton(
                     onPressed: () {},
@@ -42,7 +53,9 @@ class RadioTab extends StatelessWidget {
                       Icons.skip_next_rounded,
                       size: 45,
                     ),
-                    //color: AppColors.primary,
+                    color: provider.isDarkMode()
+                        ? AppColors.accentDark
+                        : AppColors.primary,
                   ),
                 ],
               ),

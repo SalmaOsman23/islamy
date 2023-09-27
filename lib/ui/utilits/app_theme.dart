@@ -32,6 +32,8 @@ abstract class AppTheme {
 
   static ThemeData lightTheme = ThemeData(
       scaffoldBackgroundColor: Colors.transparent,
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: AppColors.primary, foregroundColor: AppColors.white),
       primaryColor: AppColors.primary,
       dividerTheme:
           const DividerThemeData(thickness: 3, color: AppColors.primary),
@@ -60,6 +62,9 @@ abstract class AppTheme {
 
   static ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: Colors.transparent,
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: AppColors.primaryDark,
+        foregroundColor: AppColors.white),
     primaryColor: AppColors.primaryDark,
     dividerTheme:
         const DividerThemeData(thickness: 3, color: AppColors.accentDark),
@@ -79,6 +84,9 @@ abstract class AppTheme {
       bodyLarge: appBarTitleTextStyle.copyWith(color: AppColors.white),
       displayMedium: quranTabTitleTextStyle.copyWith(color: AppColors.white),
     ),
+    /*switchTheme: SwitchThemeData(
+      thumbColor: AppColors.accentDark
+    ),*/
     /*iconButtonTheme: IconButtonThemeData(
         style: ButtonStyle(
           foregroundColor: MaterialStateProperty.all<Color?>(AppColors.primary),
