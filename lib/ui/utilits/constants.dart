@@ -115,4 +115,12 @@ abstract class Constants {
     "الفلق",
     "الناس"
   ];
+
+  static const List<String> AzkarNames = [
+    "أستغفر الله",
+    "الله أكبر",
+    "لا إله إلا الله",
+    "الحمد لله",
+    "سبحان الله"
+  ];
 }
