@@ -26,24 +26,39 @@ class _SebhaTabState extends State<SebhaTab> {
     provider = Provider.of(context);
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(18.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            //Image.asset(AppAssets.sebhaHead),
-            Transform.rotate(
-                angle: rotateAngle * (pi / 180),
-                child: provider.isDarkMode()
-                    ? Image.asset(AppAssets.bodySebhaDark)
-                    : Image.asset(AppAssets.bodySebha)),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                "عدد التسبيحات",
-                style: Theme.of(context).textTheme.displayMedium,
-              ),
+            Stack(
+              children: [
+                Positioned(
+                  top: MediaQuery.of(context).size.height * 0.005,
+                  left: MediaQuery.of(context).size.height * 0,
+                  right: MediaQuery.of(context).size.width * 0,
+                  child: Center(
+                    child: provider.isDarkMode()
+                        ? Image.asset(AppAssets.sebhaHeadDark)
+                        : Image.asset(AppAssets.sebhaHead),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.width * 0.20),
+                  child: Transform.rotate(
+                      angle: rotateAngle * (pi / 180),
+                      child: provider.isDarkMode()
+                          ? Image.asset(AppAssets.bodySebhaDark)
+                          : Image.asset(AppAssets.bodySebha)),
+                ),
+              ],
+            ),
+            Text(
+              "عدد التسبيحات",
+              style: Theme.of(context).textTheme.displayMedium,
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 18.0),
+              padding: const EdgeInsets.only(top: 8.0),
               child: Column(
                 children: [
                   FloatingActionButton(
@@ -62,7 +77,7 @@ class _SebhaTabState extends State<SebhaTab> {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 20),
+                    margin: EdgeInsets.only(top: 18),
                     padding: EdgeInsets.all(16),
                     child: Text(
                       Constants.AzkarNames[currentIndex],
@@ -77,7 +92,7 @@ class _SebhaTabState extends State<SebhaTab> {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -95,7 +110,7 @@ class _SebhaTabState extends State<SebhaTab> {
   }
 
   void rotateImage() {
-    rotateAngle += 30;
+    rotateAngle += 45;
     setState(() {});
   }
 }

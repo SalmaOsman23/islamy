@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamy/data_model/details_screen_args.dart';
 import 'package:islamy/ui/utilits/app_colors.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../providers/settings_provider.dart';
 import '../../../utilits/app_assets.dart';
-import '../../../utilits/app_theme.dart';
 
 class DetailScreen extends StatefulWidget {
   static const String routeName = "Details Screen";
@@ -16,46 +17,55 @@ class DetailScreen extends StatefulWidget {
 class _DetailScreenState extends State<DetailScreen> {
   late DetailsScreenArgs arguments;
   String fileContent = "";
+  late SettingsProvider provider;
 
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of(context);
     arguments = ModalRoute.of(context)!.settings.arguments as DetailsScreenArgs;
     //print("File Surah Name : ${arguments.detailsScreenContent}");
     if (fileContent.isEmpty) readFile();
     return Stack(children: [
-      Image.asset(
-        AppAssets.background,
-        fit: BoxFit.fill,
-        width: double.infinity,
-      ),
+      provider.isDarkMode()
+          ? Image.asset(
+              AppAssets.darkBackground,
+              fit: BoxFit.fill,
+              width: double.infinity,
+            )
+          : Image.asset(
+              AppAssets.background,
+              fit: BoxFit.fill,
+              width: double.infinity,
+            ),
       Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: Text(arguments.detailsScreenTitle,
-              style: AppTheme.appBarTitleTextStyle),
+              style: Theme.of(context).textTheme.bodyLarge),
         ),
         body: fileContent.isEmpty
             ? Center(child: CircularProgressIndicator())
             : Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: AppColors.containerBackground,
+          padding: const EdgeInsets.all(16.0),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+                    color: provider.isDarkMode()
+                        ? AppColors.primaryDark
+                        : AppColors.containerBackground,
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: SingleChildScrollView(
-                        child: Text(
-                      "$fileContent",
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: SingleChildScrollView(
+                  child: Text(
+                    "$fileContent",
                       textDirection: TextDirection.rtl,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600, color: AppColors.accent),
+                      style: Theme.of(context).textTheme.bodyMedium,
                     )),
-                  ),
-                ),
-              ),
+            ),
+          ),
+        ),
       ),
     ]);
   }

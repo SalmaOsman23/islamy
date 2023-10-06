@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:islamy/preference/preference.dart';
 import 'package:islamy/providers/settings_provider.dart';
 import 'package:islamy/ui/screens/home/details_screen/details_screen.dart';
 import 'package:islamy/ui/screens/home/home_screen.dart';
@@ -8,10 +9,13 @@ import 'package:islamy/ui/screens/home/tabs/sebha_tab/sebha_tab.dart';
 import 'package:islamy/ui/screens/home/tabs/settings_tab/settigs_tab.dart';
 import 'package:islamy/ui/utilits/app_theme.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(ChangeNotifierProvider(
-      create: (_) => SettingsProvider(), child: MyApp()));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Preference.pref = await SharedPreferences.getInstance();
+  runApp(ChangeNotifierProvider<SettingsProvider>(
+      create: (_) => SettingsProvider()..intial(), child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
